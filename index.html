@@ -1,54 +1,126 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Assignment 1</title>
-    <!--information about me-->
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Udeh Agatha — Card</title>
+  <style>
+    :root{
+      --bg1: #ff9a9e;
+      --bg2: #fad0c4;
+      --card1: #6a11cb;
+      --card2: #2575fc;
+      --accent: #ffd166;
+      --glass: rgba(255,255,255,0.12);
+      --radius: 18px;
+      --shadow: 0 10px 30px rgba(20,20,40,0.18);
+      font-family: 'Inter', system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+    }
+
+    html,body{
+      height:100%;
+      margin:0;
+      background: linear-gradient(135deg,var(--bg1),var(--bg2));
+      display:flex;
+      align-items:center;
+      justify-content:center;
+    }
+
+    .card {
+      width: min(420px, 92%);
+      border-radius: var(--radius);
+      padding: 68px;
+      box-shadow: var(--shadow);
+      background: linear-gradient(135deg,var(--card1),var(--card2));
+      color: white;
+      position: relative;
+      overflow: hidden;
+      transform: translateY(0);
+      transition: transform .35s ease;
+    }
+
+    .card:hover { transform: translateY(-8px); }
+
+    .bubbles {
+      position:absolute;
+      inset: -30% -20% auto auto;
+      width: 240px;
+      height: 240px;
+      background: radial-gradient(circle at 30% 30%, rgba(255,255,255,0.12), transparent 30%),
+                  radial-gradient(circle at 70% 70%, rgba(255,255,255,0.08), transparent 25%);
+      filter: blur(18px);
+      transform: rotate(20deg);
+      pointer-events: none;
+    }
+
+    .title {
+      display:flex;
+      align-items:center;
+      gap:12px;
+      margin-bottom: 12px;
+    }
+
+    .avatar {
+      width:56px;
+      height:56px;
+      border-radius:12px;
+      background: linear-gradient(120deg,var(--accent), rgba(255,255,255,0.12));
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      font-weight:700;
+      color:#2b2b2b;
+      font-size:18px;
+      box-shadow: 0 6px 18px rgba(0,0,0,0.18), inset 0 -6px 12px rgba(255,255,255,0.06);
+    }
+
+    h1 {
+      font-size:18px;
+      margin:0;
+      letter-spacing:0.2px;
+    }
+
+    p {
+      margin: 10px 0 0;
+      line-height:1.4;
+      opacity: 0.95;
+      font-size:15px;
+    }
+
+    .tag {
+      display:inline-block;
+      margin-top:14px;
+      padding:6px 10px;
+      border-radius:999px;
+      background: rgba(255,255,255,0.12);
+      font-size:13px;
+      font-weight:600;
+      color: rgba(255,255,255,0.95);
+      backdrop-filter: blur(4px);
+    }
+
+    /* small responsive tweak */
+    @media (max-width:420px){
+      .avatar { width:48px;height:48px;font-size:16px; }
+      .card{ padding:20px; }
+      h1{ font-size:17px; }
+    }
+  </style>
 </head>
-<h1>My basic information</h1>
-<section id="bio">
-<h4>my biography</h4>
-<p>Alt school ID:<b>SOE/025/0944</b></p>
 <body>
-<p>My name is Udeh Agatha I am a passionate and ambitious young woman, balancing the roles of a dedicated mother,
-   skilled chef, and aspiring cloud engineer. At 23 years old, I have already made significant strides in both my 
-   personal and professional life.
-  As a mother, i finds immense joy and fulfillment in nurturing my child, embracing the challenges and rewards of
-   parenthood with grace and determination. My journey as a chef showcases my creativity and love for culinary arts,
-    where  i delights in crafting delicious and memorable dishes.
-  Driven by a passion for technology and innovation, i am currently pursuing a career in cloud engineering at AltSchool.
-   This exciting new chapter reflects my commitment to lifelong learning and professional growth. 
-   Through dedication and perseverance, i aim to merge my technical expertise with my culinary skills,
-    exploring innovative ways to integrate technology into the food industry.</p>
+  <div class="card" role="article" aria-label="Profile card">
+    <div class="bubbles" aria-hidden="true"></div>
+
+    <div class="title">
+      <div class="avatar">UA</div>
+      <div>
+        <h1>My name is Udeh Agatha</h1>
+        <div style="font-size:13px; opacity:0.9;">Cloud Engineering student</div>
+      </div>
+    </div>
+    <p>I'm studying Cloud Engineering at AltSchool Africa </p>
+    <p>server IP: {{ansible_host}}</p>
+    <div class="tag">#CloudEngineering</div>
+  </div>
 </body>
-</section>
-<!--reasons-->
-<section>
-    <h4>Why i joined the program</h4>
-    <p>I joined the AltSchool Software Engineering Program because I wanted to gain practical,
-         in-demand skills in software development. The programs hands-on, project-based approach
-          stood out to me, as it offers real-world experience rather than just theory. I was also
-           drawn to the strong support system, including mentorship from industry experts and
-            collaboration with a community of passionate learners. Additionally, AltSchools
-             focus on career readiness and job placement gave me confidence that completing 
-             the program would open up valuable opportunities in the tech industry.</p>
-</section>
-<!--my goals-->
-<section>
-    <h4>my goals for SOE program</h4>
-    <ui>
-       <li>Develop a Growth Mindset: Continuously improve my skills and stay adaptable in the ever-evolving tech landscape.</li> 
-       <li>Build Strong Technical Skills: Master programming languages, frameworks,
-         and tools that are essential in the software engineering field.</li>
-       <li> Gain Hands-On Experience: Work on real-world projects to develop problem-solving abilities and build a robust portfolio.</li>  
-       <li>Collaborate and Network: Connect with peers, mentors, and industry professionals to learn from their
-         experiences and grow my network.</li>
-       <li>Prepare for a Successful Career: Acquire the skills and knowledge needed to secure a rewarding job in
-         software development after graduation.</li>  
-    </ui>
-</section>
-<p><a href="#bio">back to top</a>
-<a href="./second_assignment/media.html">media page</a>
-<a href="./second_assignment/table.html">table page</a>
 </html>
